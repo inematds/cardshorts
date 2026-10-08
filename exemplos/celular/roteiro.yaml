@@ -1,0 +1,18 @@
+# Exemplo do estilo celular (notificação, busca, fila, enquete).
+titulo: "Cadê a sua vaga"
+saida: celular.mp4
+estilo: celular
+legenda: true
+cenas:
+  - fala: "Imagine receber essa mensagem hoje."
+    molde: notificacao
+    campos: {data: "quinta-feira, 8 de outubro", hora: "9:41", app: "🎓 Qualificação em IA", titulo: "Parabéns! Sua vaga saiu.", texto: "Seu curso de IA começa amanhã.", aviso: "(mensagem imaginária)", legenda: 'Quem vai te mandar essa mensagem? <span class="y">Ninguém.</span>', fonte: ""}
+  - fala: "Você procura curso de IA pra quem trabalha, e acha pouca coisa."
+    molde: busca
+    campos: {busca: "curso de IA grátis para trabalhador", resultados: '<div class="res"><b>Curso pago</b><div class="rdx">R$ 1.900</div></div><div class="res"><b>Curso só para uma área</b><div>não é pra você</div></div><div class="res"><b>inema.club</b><div>grátis · para todos</div></div>', conclusao: 'Achou? <span class="rd">Começa hoje.</span>'}
+  - fala: "Esperar na fila não é plano."
+    molde: fila
+    campos: {titulo: "Fila da qualificação", posicao: "29.999.999", total: "30.000.000", status: "tempo estimado: indefinido", legenda: 'Esperar <span class="y">não é plano.</span>', fonte: "fila ilustrativa"}
+  - fala: "Você já está aprendendo inteligência artificial? Responde aí."
+    molde: enquete
+    campos: {pergunta: 'Você já está aprendendo <span class="y">IA?</span>', sim: "SIM", nao: "NÃO", rodape: "inema.club · grátis"}

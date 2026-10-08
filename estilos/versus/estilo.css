@@ -1,0 +1,5 @@
+/* versus — editorial preto e branco com vermelho; foto x foto, telas divididas, chamadas em Anton */
+.faixa{position:absolute;left:0;right:0;height:160px;background:#ff3b2f;display:flex;align-items:center;justify-content:center}
+.faixa .anton{font-size:118px;color:#000}
+.tit{position:absolute;left:50px;right:50px;font-family:'Anton';text-transform:uppercase;line-height:1.02;text-shadow:0 6px 30px #000}
+.bloco{position:absolute;left:60px;right:60px;background:#ff3b2f;padding:40px 30px;text-align:center;color:#000}

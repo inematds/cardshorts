@@ -1,0 +1,46 @@
+<!-- Moldes do estilo extrato. "linhas" aceita HTML: <div class="l"><span>ROTULO</span><span>VALOR</span></div>, <div class="l b">…</div> (negrito), <hr>, <div class="note">texto</div>. -->
+<template id="recibo-total">
+<section class="card" style="background:#1d1d1d">
+  <div class="rec">
+    <div class="h">{{titulo}}</div><div class="s">{{subtitulo}}</div><hr>
+    {{linhas}}<hr>
+    <div class="l b"><span>{{total_rotulo}}</span><span></span></div>
+    <div class="big">{{total}}</div>
+  </div>
+  <div class="stamp" style="right:120px;top:1120px">{{carimbo}}</div>
+  <div class="fonte">{{fonte}}</div>
+</section>
+</template>
+
+<template id="recibo">
+<section class="card" style="background:#1d1d1d">
+  <div class="rec">
+    <div class="h">{{titulo}}</div><div class="s">{{subtitulo}}</div><hr>
+    {{linhas}}
+  </div>
+  <div class="fonte">{{fonte}}</div>
+</section>
+</template>
+
+<template id="recibo-carimbo">
+<section class="card" style="background:#1d1d1d">
+  <div class="rec">
+    <div class="h">{{titulo}}</div><div class="s">{{subtitulo}}</div><hr>
+    {{linhas}}
+  </div>
+  <div class="stamp" style="right:110px;top:1330px">{{carimbo}}</div>
+  <div class="fonte">{{fonte}}</div>
+</section>
+</template>
+
+<template id="recibo-enquete">
+<section class="card" style="background:#1d1d1d">
+  <div class="rec">
+    <div class="h">{{titulo}}</div><div class="s">{{subtitulo}}</div><hr>
+    <div class="note">{{pergunta}}</div><hr>
+    <div style="font-size:70px;font-weight:700;line-height:1.8"><span class="box"></span>{{opcao1}}</div>
+    <div style="font-size:70px;font-weight:700;line-height:1.8"><span class="box"></span>{{opcao2}}</div><hr>
+    <div class="note">{{rodape}}</div>
+  </div>
+</section>
+</template>

@@ -1,0 +1,55 @@
+<!-- Moldes do estilo versus. Campos {{x}}: texto (aceita HTML: <span class="rd">, <span class="y">, <br>) ou imagem (img:nome / arquivo). -->
+<template id="capa-dupla">
+<section class="card" style="background:#000">
+  <img class="ph" src="{{foto_cima}}" style="top:0;height:860px">
+  <img class="ph bw" src="{{foto_baixo}}" style="top:1000px;height:920px;object-position:50% 20%">
+  <div class="faixa" style="top:850px"><div class="anton">{{faixa}}</div></div>
+  <div class="tag" style="left:40px;top:780px">{{tag_cima}}</div>
+  <div class="tag" style="left:40px;top:1030px">{{tag_baixo}}</div>
+</section>
+</template>
+
+<template id="tela-dividida">
+<section class="card" style="background:#000">
+  <img class="ph bw" src="{{foto_cima}}" style="top:0;height:960px">
+  <img class="ph bw" src="{{foto_baixo}}" style="top:960px;height:960px">
+  <div style="position:absolute;left:0;right:0;top:956px;height:8px;background:#ff3b2f"></div>
+  <div class="tit" style="top:120px;font-size:120px">{{titulo_cima}}</div>
+  <div class="tit" style="top:1010px;font-size:120px">{{titulo_baixo}}</div>
+</section>
+</template>
+
+<template id="pergunta-foto">
+<section class="card" style="background:#0b0b0b">
+  <img class="ph" src="{{foto}}" style="top:180px;height:620px;opacity:.85">
+  <div class="tit" style="left:60px;right:60px;top:880px;font-size:150px">{{pergunta}}</div>
+</section>
+</template>
+
+<template id="foto-cheia">
+<section class="card" style="background:#000">
+  <img class="ph bw" src="{{foto}}" style="top:0;height:1920px;opacity:.8">
+  <div class="shade" style="top:0;height:900px;transform:rotate(180deg)"></div>
+  <div class="tit" style="top:200px;font-size:124px">{{titulo}}</div>
+</section>
+</template>
+
+<template id="cta-faixa">
+<section class="card" style="background:#000">
+  <img class="ph bw" src="{{fundo}}" style="top:0;height:1920px;opacity:.35">
+  <div class="tit" style="left:60px;right:60px;top:260px;font-size:110px;line-height:1.05">{{chamada}}</div>
+  <div class="bloco" style="top:700px">
+    <div class="anton" style="font-size:150px;line-height:1">{{marca}}</div>
+    <div style="font-weight:800;font-size:50px;margin-top:10px">{{sub}}</div>
+  </div>
+</section>
+</template>
+
+<template id="cta-lista">
+<section class="card" style="background:#000">
+  <img class="ph bw" src="{{fundo}}" style="top:0;height:1920px;opacity:.25">
+  <div class="tit" style="left:60px;right:60px;top:200px;font-size:104px;line-height:1.05">{{titulo}}</div>
+  <div style="position:absolute;left:60px;right:60px;top:560px;font-weight:800;font-size:64px;line-height:1.25">{{texto}}</div>
+  <div class="anton" style="position:absolute;left:60px;right:60px;top:1000px;font-size:130px;color:#ff3b2f">{{marca}}</div>
+</section>
+</template>

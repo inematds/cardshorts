@@ -1,0 +1,30 @@
+# Exemplo do estilo versus. Rode: ./cardshorts.py montar exemplos/versus/roteiro.yaml
+titulo: "Você × humanoides"
+saida: versus.mp4
+estilo: versus
+max_seg: 30          # a velocidade da fala é ajustada para caber (até 1,2x)
+legenda: true        # legenda palavra a palavra (Whisper local)
+musica: true         # true = musicas/tensa.mp3; ou o caminho de outra trilha
+voz:
+  ref: nei           # arquivo nei.wav na pasta de vozes (CS_VOZES)
+
+imagens:             # geradas no FLUX.2 klein local; use com img:nome
+  equipe:  {prompt: "group of Brazilian factory workers in uniforms facing the camera, waist up, serious faces", w: 1088, h: 640}
+  dupla:   {prompt: "two modern faceless humanoid robots side by side facing camera, black glossy visor heads, white and grey body panels, waist up, dark background", w: 1088, h: 640}
+  fabrica: "modern faceless humanoid robot with black visor head moving a plastic tote box on a factory assembly line, no human workers"
+  escrit:  "modern faceless humanoid robot with black glossy visor head sitting at an office desk with laptop, glass meeting room, empty human chairs"
+  fila:    {prompt: "row of modern faceless humanoid robots, black visor heads, white body panels, standing in line on a factory floor", w: 1088, h: 640}
+
+cenas:
+  - fala: "De um lado, quem trabalha. Do outro, os humanoides."
+    molde: capa-dupla
+    campos: {foto_cima: "img:equipe", foto_baixo: "img:dupla", faixa: "VOCÊ × ELES", tag_cima: "TRABALHADORES", tag_baixo: "HUMANOIDES · ILUSTRATIVO"}
+  - fala: "A máquina entra na fábrica e no escritório. E quem vai preparar o trabalhador e o gerente?"
+    molde: tela-dividida
+    campos: {foto_cima: "img:fabrica", titulo_cima: 'TRABALHADOR<span class="rd">?</span>', foto_baixo: "img:escrit", titulo_baixo: 'GERENTE<span class="rd">?</span>'}
+  - fala: "Esperar alguém fazer isso por você pode custar o seu lugar."
+    molde: pergunta-foto
+    campos: {foto: "img:fila", pergunta: 'QUEM VAI TE <span class="rd">PREPARAR?</span>'}
+  - fala: "O inema ponto club é grátis. Aprenda agora e garanta o seu espaço."
+    molde: cta-faixa
+    campos: {fundo: "img:fila", chamada: 'APRENDA AGORA.<br><span class="y">GRÁTIS.</span>', marca: "INEMA.CLUB", sub: "PLATAFORMA GRATUITA"}

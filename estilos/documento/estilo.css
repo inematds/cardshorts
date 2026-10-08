@@ -1,0 +1,8 @@
+/* documento — papel datilografado, formulário em branco, carimbos e certificado */
+.paper{position:absolute;background:#f7f4ea;color:#1b1b1b;font-family:'Courier Prime',monospace;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+.paper .h{font-weight:700;font-size:50px;text-align:center}
+.paper .s{font-size:32px;text-align:center;margin-top:6px}
+.paper .item{font-size:40px;margin-top:40px;font-weight:700}
+.paper .line{border-bottom:3px solid #999;height:70px}
+.paper .resp{font-family:'Permanent Marker';font-size:52px;color:#1f6fd1}
+.tit{position:absolute;left:60px;right:60px;font-family:'Anton';text-transform:uppercase;line-height:1.05;text-shadow:0 6px 30px #000}

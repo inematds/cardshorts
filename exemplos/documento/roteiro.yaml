@@ -1,0 +1,26 @@
+# Exemplo do estilo documento (formulário em branco, aviso, formulário preenchido, certificado).
+titulo: "Plano em branco"
+saida: documento.mp4
+estilo: documento
+legenda: true
+imagens:
+  equipe:  {prompt: "group of Brazilian office workers in a meeting room facing the camera, waist up", w: 1088, h: 640}
+  escrit:  "modern faceless humanoid robot with black glossy visor head sitting at an office desk with laptop, glass meeting room, empty human chairs"
+  fabrica: "modern faceless humanoid robot with black visor head moving a plastic tote box on a factory assembly line, no human workers"
+  gerente: "middle aged office manager seen from behind packing his desk into a cardboard box, modern faceless humanoid robot with black visor taking his chair"
+cenas:
+  - fala: "Pergunta direta: qual é o seu plano?"
+    molde: capa-pergunta
+    campos: {foto_cima: "img:equipe", foto_baixo: "img:escrit", rotulo: "PERGUNTA PARA VOCÊ:", pergunta: "QUAL É O PLANO?", tag_cima: "EQUIPE", tag_baixo: "HUMANOIDE · ILUSTRATIVO"}
+  - fala: "O humanoide entra na fábrica. A inteligência artificial entra no escritório."
+    molde: formulario
+    campos: {fundo: "img:fabrica", titulo: "PLANO DE TRANSIÇÃO", subtitulo: "IA E HUMANOIDES NO TRABALHO", item1: "1. Trabalhador da fábrica:", item2: "2. Gerente do escritório:", item3: "3. Quem vai qualificar:", carimbo: "EM BRANCO"}
+  - fala: "Se você esperar, pode ficar sem lugar."
+    molde: aviso
+    campos: {fundo: "img:gerente", aviso: "LUGAR RESERVADO", detalhe: 'para: <b style="color:#c8322a">HUMANOIDE</b>', titulo: 'ESPERAR <span class="rd">PODE CUSTAR SEU LUGAR.</span>'}
+  - fala: "Preencha o seu: inema ponto club, grátis."
+    molde: formulario-preenchido
+    campos: {titulo: "PLANO DE TRANSIÇÃO", subtitulo: "VERSÃO INEMA", item1: "1. Trabalhador:", resp1: "aprender IA no inema.club", item2: "2. Gerente:", resp2: "gestão de agentes, grátis", item3: "3. Custo:", resp3: "R$ 0,00", carimbo: "PREENCHIDO"}
+  - fala: "Garanta o seu espaço."
+    molde: certificado
+    campos: {nome: "você", texto: "pela qualificação em<br><b>inteligência artificial</b>", ano: "2027", marca: "INEMA.CLUB · GRÁTIS", titulo: 'GARANTA SEU <span class="y">ESPAÇO.</span>'}

@@ -1,0 +1,25 @@
+# Exemplo do estilo extrato. Números ILUSTRATIVOS: num vídeo real, use dado oficial atual e cite a fonte em "fonte".
+titulo: "Extrato do seu tempo"
+saida: extrato.mp4
+estilo: extrato
+legenda: true
+cenas:
+  - fala: "Esse é o extrato da sua semana de trabalho."
+    molde: recibo-total
+    campos:
+      titulo: "EXTRATO"
+      subtitulo: "SUA SEMANA · 44 HORAS"
+      linhas: '<div class="l"><span>RELATÓRIOS</span><span>9 h</span></div><div class="l"><span>PLANILHAS</span><span>8 h</span></div><div class="l"><span>E-MAILS</span><span>7 h</span></div>'
+      total_rotulo: "QUE A IA JÁ FAZ"
+      total: "24 h"
+      carimbo: "E AGORA?"
+      fonte: "Números ilustrativos (exemplo)"
+  - fala: "Quase metade dessas horas a inteligência artificial já faz."
+    molde: recibo-carimbo
+    campos: {titulo: "PENDÊNCIAS", subtitulo: "O QUE SOBRA PRA VOCÊ", linhas: '<div class="note">• Decidir</div><div class="note">• Conferir o trabalho da IA</div><div class="note">• Gerir agentes</div>', carimbo: "APRENDA", fonte: "Exemplo"}
+  - fala: "Você já aprendeu a gerir esse trabalho?"
+    molde: recibo-enquete
+    campos: {titulo: "CONFIRA", subtitulo: "SUA QUALIFICAÇÃO", pergunta: "Você já sabe gerir agentes de IA?", opcao1: "SIM", opcao2: "NÃO", rodape: "Responda nos comentários."}
+  - fala: "Os cursos do inema ponto club custam zero reais."
+    molde: recibo
+    campos: {titulo: "INEMA.CLUB", subtitulo: "CURSOS DE IA", linhas: '<div class="l"><span>OSWORK</span><span>R$ 0,00</span></div><div class="l"><span>GESTÃO DE AGENTES</span><span>R$ 0,00</span></div><hr><div class="l b"><span>TOTAL</span><span>R$ 0,00</span></div>', fonte: "inema.club"}

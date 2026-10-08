@@ -1,0 +1,15 @@
+/* Base comum a todos os estilos: tela 1080x1920 e utilitários. Zona da legenda: y 1450–1720 (evite texto importante ali). */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+.card{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:'Inter',sans-serif;color:#fff}
+.ph{position:absolute;left:0;width:1080px;object-fit:cover}
+.bw{filter:grayscale(1) contrast(1.15)}
+.anton{font-family:'Anton';text-transform:uppercase;letter-spacing:1px}
+.mono{font-family:'Courier Prime',monospace}
+.mao{font-family:'Permanent Marker'}
+.rd{color:#ff3b2f}.y{color:#ffd23f}.gr{color:#3ddc84}
+.tag{position:absolute;font-weight:800;font-size:30px;letter-spacing:3px;background:#000;color:#fff;padding:8px 18px}
+.src{position:absolute;left:60px;right:60px;bottom:60px;font-size:26px;color:rgba(255,255,255,.55)}
+.stamp{position:absolute;font-family:'Permanent Marker';color:#ff3b2f;border:9px solid #ff3b2f;border-radius:14px;padding:6px 30px;font-size:80px;transform:rotate(-10deg);white-space:nowrap}
+.stamp.verde{color:#1f8a4c;border-color:#1f8a4c}
+.shade{position:absolute;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.92))}

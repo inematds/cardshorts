@@ -1,0 +1,12 @@
+/* extrato — nota fiscal / extrato bancário com borda picotada e carimbos */
+.rec{position:absolute;left:90px;right:90px;top:150px;bottom:330px;background:#fbfaf4;color:#1b1b1b;font-family:'Courier Prime',monospace;padding:60px 56px;box-shadow:0 20px 50px rgba(0,0,0,.6);
+  -webkit-mask:linear-gradient(#000,#000) 0 30px/100% calc(100% - 60px) no-repeat,radial-gradient(circle at 15px 0,transparent 14px,#000 15px) 0 0/30px 30px repeat-x,radial-gradient(circle at 15px 30px,transparent 14px,#000 15px) 0 100%/30px 30px repeat-x}
+.rec .h{text-align:center;font-weight:700;font-size:80px;letter-spacing:4px}
+.rec .s{text-align:center;font-size:36px;margin-top:10px}
+.rec hr{border:0;border-top:4px dashed #666;margin:56px 0}
+.rec .l{display:flex;justify-content:space-between;font-size:50px;line-height:1.6}
+.rec .l.b{font-weight:700;font-size:56px}
+.rec .big{font-size:170px;font-weight:700;text-align:right;color:#c8322a;line-height:1.1}
+.rec .note{font-size:48px;line-height:1.35}
+.box{display:inline-block;width:64px;height:64px;border:6px solid #1b1b1b;vertical-align:middle;margin-right:20px}
+.fonte{position:absolute;left:90px;right:90px;bottom:120px;color:#aaa;font-size:28px;line-height:1.35}

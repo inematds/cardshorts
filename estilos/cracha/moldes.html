@@ -1,0 +1,46 @@
+<!-- Moldes do estilo cracha. mira_x/mira_y = posição (px) do centro do alvo na foto de baixo. -->
+<template id="capa-mira">
+<section class="card" style="background:#000">
+  <img class="ph" src="{{foto_cima}}" style="top:0;height:760px">
+  <img class="ph bw" src="{{foto_baixo}}" style="top:760px;height:1160px;object-position:{{enquadre}}">
+  <div class="shade" style="top:620px;height:140px"></div>
+  <svg style="position:absolute;left:calc({{mira_x}}px - 180px);top:calc({{mira_y}}px - 180px)" width="360" height="360" viewBox="0 0 500 500"><g fill="none" stroke="#ff3b2f" stroke-width="12"><circle cx="250" cy="250" r="200"/><circle cx="250" cy="250" r="110"/><path d="M250 0v150M250 350v150M0 250h150M350 250h150"/></g></svg>
+  <div class="tit" style="left:50px;top:640px;font-size:96px;text-shadow:0 4px 20px #000">{{titulo}}</div>
+  <div class="tag" style="right:30px;top:30px">{{tag_cima}}</div>
+  <div class="tag" style="right:30px;top:790px">{{tag_baixo}}</div>
+</section>
+</template>
+
+<template id="dois-crachas">
+<section class="card" style="background:#1a1a1a">
+  <div class="badge" style="left:60px;top:260px;transform:rotate(-4deg)"><div class="hole"></div><img src="{{foto1}}"><div class="nm">{{nome1}}</div></div>
+  <div class="badge" style="left:580px;top:300px;transform:rotate(4deg)"><div class="hole"></div><img src="{{foto2}}"><div class="nm">{{nome2}}</div></div>
+  <div class="stamp" style="left:90px;top:600px;font-size:52px">{{carimbo}}</div>
+  <div class="stamp" style="left:600px;top:640px;font-size:52px">{{carimbo}}</div>
+  <div class="tit" style="top:1080px;font-size:96px">{{titulo}}</div>
+</section>
+</template>
+
+<template id="cedula">
+<section class="card" style="background:#efece3;color:#111">
+  <div class="tit" style="top:180px;font-size:120px;line-height:1">{{titulo}}</div>
+  <div style="position:absolute;left:60px;right:60px;top:520px;border:6px solid #111;padding:44px 40px;background:#fff">
+    <div style="font-weight:800;font-size:46px">{{pergunta}}</div>
+    <div style="height:120px;border-bottom:5px dashed #888"></div>
+    <div style="height:120px;border-bottom:5px dashed #888"></div>
+  </div>
+  <div class="tit" style="top:1050px;font-size:84px">{{rodape}}</div>
+</section>
+</template>
+
+<template id="cracha-destaque">
+<section class="card" style="background:#1a1a1a">
+  <div class="badge" style="left:320px;top:200px;transform:rotate(-3deg);height:760px">
+    <div class="hole"></div>
+    <div class="bloco" style="background:{{cor}}">{{destaque}}</div>
+    <div class="nm">{{nome}}</div>
+    <div class="sub">{{linha}}</div>
+  </div>
+  <div class="tit" style="top:1040px;font-size:96px">{{titulo}}</div>
+</section>
+</template>

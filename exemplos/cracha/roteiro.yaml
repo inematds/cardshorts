@@ -1,0 +1,25 @@
+# Exemplo do estilo cracha (alvo, crachás carimbados, cédula).
+titulo: "Na mira"
+saida: cracha.mp4
+estilo: cracha
+legenda: true
+imagens:
+  fila:    {prompt: "row of modern faceless humanoid robots, black visor heads, white body panels, standing in line on a factory floor", w: 1088, h: 640}
+  equipe:  {prompt: "group of Brazilian office and factory workers facing the camera, waist up, serious faces", w: 1088, h: 640}
+  saida:   "tired Brazilian factory worker seen from behind leaving through a gate carrying a cardboard box, modern faceless humanoid robot with black visor working inside"
+  gerente: "middle aged office manager seen from behind packing his desk into a cardboard box, modern faceless humanoid robot with black visor taking his chair"
+cenas:
+  - fala: "Trabalhador. Gerente. Os dois na mira dos humanoides."
+    molde: capa-mira
+    campos: {foto_cima: "img:equipe", foto_baixo: "img:fila", enquadre: "10% 30%", mira_x: 364, mira_y: 977,
+             titulo: 'QUEM ESTÁ <span class="rd">NA MIRA?</span>', tag_cima: "TRABALHADORES", tag_baixo: "HUMANOIDES · ILUSTRATIVO"}
+  - fala: "A máquina já escreve o relatório. O robô já carrega a caixa."
+    molde: dois-crachas
+    campos: {foto1: "img:saida", nome1: "TRABALHADOR", foto2: "img:gerente", nome2: "GERENTE", carimbo: "SUBSTITUÍDO",
+             titulo: 'E QUEM PERDER O SERVIÇO, <span class="rd">FAZ O QUÊ?</span>'}
+  - fala: "Alguém já te mostrou um plano pra isso?"
+    molde: cedula
+    campos: {titulo: 'CADÊ O <span class="rd">PLANO?</span>', pergunta: "PLANO PARA QUEM PERDER O EMPREGO PARA A IA E OS ROBÔS:", rodape: 'ALGUÉM TE <span class="rd">MOSTROU?</span>'}
+  - fala: "Você já está qualificado? No inema ponto club é grátis."
+    molde: cracha-destaque
+    campos: {cor: "#ff3b2f", destaque: "VOCÊ", nome: "QUALIFICADO", linha: "INEMA.CLUB · GRÁTIS", titulo: 'APRENDA <span class="y">AGORA.</span>'}

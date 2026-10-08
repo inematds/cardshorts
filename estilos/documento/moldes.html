@@ -1,0 +1,64 @@
+<!-- Moldes do estilo documento. -->
+<template id="capa-pergunta">
+<section class="card" style="background:#000">
+  <img class="ph" src="{{foto_cima}}" style="top:0;height:960px">
+  <img class="ph bw" src="{{foto_baixo}}" style="top:960px;height:960px;object-position:50% 35%">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.25)"></div>
+  <div class="paper" style="left:50px;right:50px;top:700px;padding:40px;transform:rotate(-2deg)">
+    <div style="font-weight:700;font-size:44px">{{rotulo}}</div>
+    <div style="font-weight:700;font-size:96px;color:#c8322a;line-height:1.05;margin-top:10px">{{pergunta}}</div>
+  </div>
+  <div class="tag" style="left:30px;top:30px">{{tag_cima}}</div>
+  <div class="tag" style="right:30px;top:1100px">{{tag_baixo}}</div>
+</section>
+</template>
+
+<template id="formulario">
+<section class="card" style="background:#111">
+  <img class="ph bw" src="{{fundo}}" style="top:0;height:1920px;opacity:.55">
+  <div class="paper" style="left:80px;right:80px;top:200px;padding:50px 54px">
+    <div class="h">{{titulo}}</div><div class="s">{{subtitulo}}</div>
+    <div class="item" style="margin-top:50px">{{item1}}</div><div class="line"></div>
+    <div class="item">{{item2}}</div><div class="line"></div>
+    <div class="item">{{item3}}</div><div class="line"></div>
+  </div>
+  <div class="stamp" style="left:300px;top:640px;font-size:110px">{{carimbo}}</div>
+</section>
+</template>
+
+<template id="aviso">
+<section class="card" style="background:#000">
+  <img class="ph bw" src="{{fundo}}" style="top:0;height:1920px;opacity:.7">
+  <div class="paper" style="left:120px;right:120px;top:260px;padding:30px 40px;text-align:center;transform:rotate(3deg)">
+    <div style="font-weight:700;font-size:64px">{{aviso}}</div>
+    <div style="font-size:44px;margin-top:6px">{{detalhe}}</div>
+  </div>
+  <div class="tit" style="top:900px;font-size:110px">{{titulo}}</div>
+</section>
+</template>
+
+<template id="formulario-preenchido">
+<section class="card" style="background:#1b1b1b">
+  <div class="paper" style="left:80px;right:80px;top:200px;padding:50px 54px">
+    <div class="h">{{titulo}}</div><div class="s">{{subtitulo}}</div>
+    <div class="item" style="margin-top:50px">{{item1}}</div><div class="resp">{{resp1}}</div>
+    <div class="item" style="margin-top:30px">{{item2}}</div><div class="resp">{{resp2}}</div>
+    <div class="item" style="margin-top:30px">{{item3}}</div><div class="resp">{{resp3}}</div>
+  </div>
+  <div class="stamp verde" style="left:520px;top:840px">{{carimbo}}</div>
+</section>
+</template>
+
+<template id="certificado">
+<section class="card" style="background:#1b1b1b">
+  <div class="paper" style="left:70px;right:70px;top:180px;height:900px;padding:60px 50px;text-align:center;border:16px double #b08d3c">
+    <div style="font-weight:700;font-size:44px;letter-spacing:6px">CERTIFICADO</div>
+    <div style="font-size:34px;margin-top:20px">conferido a</div>
+    <div class="mao" style="font-size:90px;margin-top:20px;border-bottom:3px solid #999">{{nome}}</div>
+    <div style="font-size:36px;margin-top:30px;line-height:1.35">{{texto}}</div>
+    <div style="font-weight:700;font-size:120px;color:#b08d3c;margin-top:30px">{{ano}}</div>
+    <div style="font-weight:700;font-size:40px;margin-top:10px">{{marca}}</div>
+  </div>
+  <div class="tit" style="top:1130px;font-size:96px;text-align:center">{{titulo}}</div>
+</section>
+</template>

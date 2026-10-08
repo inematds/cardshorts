@@ -1,0 +1,7 @@
+.obra/
+__pycache__/
+exemplos/*/*.mp4
+exemplos/*/previa.png
+config.yaml
+.obra-*.log
+guia/assets/*.log
