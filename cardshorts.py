@@ -56,9 +56,46 @@ def dur(p):
     return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(p)]))
 
 
+_UN = "zero um dois tres quatro cinco seis sete oito nove dez onze doze treze quatorze quinze dezesseis dezessete dezoito dezenove".split()
+_DZ = "_ _ vinte trinta quarenta cinquenta sessenta setenta oitenta noventa".split()
+_CT = "_ cento duzentos trezentos quatrocentos quinhentos seiscentos setecentos oitocentos novecentos".split()
+# feminino e variantes que o texto escrito usa e o Whisper não (ou vice-versa)
+_EQUIV = {"duzentas": "duzentos", "trezentas": "trezentos", "quatrocentas": "quatrocentos", "quinhentas": "quinhentos",
+          "seiscentas": "seiscentos", "setecentas": "setecentos", "oitocentas": "oitocentos", "novecentas": "novecentos",
+          "uma": "um", "duas": "dois", "catorze": "quatorze", "pra": "para"}
+
+
+def extenso(n):
+    """Inteiro por extenso em português (até bilhões), só para comparar fala com transcrição."""
+    if n < 20:
+        return _UN[n]
+    if n < 100:
+        return _DZ[n // 10] + ("" if n % 10 == 0 else " e " + _UN[n % 10])
+    if n < 1000:
+        if n == 100:
+            return "cem"
+        return _CT[n // 100] + ("" if n % 100 == 0 else " e " + extenso(n % 100))
+    for base, sing, plur in ((10**9, "um bilhao", "bilhoes"), (10**6, "um milhao", "milhoes"), (1000, "mil", "mil")):
+        if n >= base:
+            q, r = divmod(n, base)
+            cab = sing if q == 1 else f"{extenso(q)} {plur}"
+            return cab + ("" if r == 0 else (" e " if r < 100 or r % 100 == 0 else " ") + extenso(r))
+
+
+def _numeros(s):
+    def troca(m):
+        txt = m.group(0)
+        if "," in txt:  # 1,5 → um virgula cinco
+            a, b = txt.split(",", 1)
+            return f" {extenso(int(a.replace('.', '')))} virgula {extenso(int(b))} "
+        return f" {extenso(int(txt.replace('.', '')))} "
+    return re.sub(r"\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:,\d+)?", troca, s)
+
+
 def norm(s):
     s = unicodedata.normalize("NFD", s.lower()).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z0-9 ]", " ", s).split()
+    s = _numeros(s)
+    return [_EQUIV.get(w, w) for w in re.sub(r"[^a-z0-9 ]", " ", s).split()]
 
 
 def h(*partes):
