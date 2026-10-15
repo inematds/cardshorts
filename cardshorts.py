@@ -16,7 +16,7 @@ Uso:
   cardshorts.py enviar <roteiro.yaml> [texto]      manda o vídeo pelo Telegram (config telegram_env)
   cardshorts.py musica <saida.wav> [prompt]        gera uma trilha local (MusicGen-small)
 """
-import argparse, base64, difflib, hashlib, html, json, os, re, shutil, subprocess, sys, unicodedata, urllib.request
+import argparse, base64, difflib, hashlib, html, json, os, re, shutil, subprocess, sys, time, unicodedata, urllib.request
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent
@@ -129,12 +129,55 @@ def carregar(arq):
 
 # ---------------------------------------------------------------- voz
 
+WHISPER_PORTA = int(os.environ.get("CS_WHISPER_PORTA", "7871"))
+
+
+def _whisper_residente(w16, palavras):
+    """Whisper que carrega o modelo UMA vez (inemavox/whisper_daemon.py, 15/10/2026): sobe o daemon se não
+    estiver no ar e transcreve por ele. Devolve os segmentos, ou None para cair no caminho antigo."""
+    if os.environ.get("CS_WHISPER_RESIDENTE", "1") == "0":
+        return None
+    base = f"http://127.0.0.1:{WHISPER_PORTA}"
+
+    def no_ar():
+        try:
+            return urllib.request.urlopen(base + "/saude", timeout=5).status == 200
+        except Exception:
+            return False
+
+    try:
+        if not no_ar():
+            import fcntl
+            with open(HOME / ".cache/whisper_daemon.lock", "w") as lk:  # só um processo sobe o daemon
+                fcntl.flock(lk, fcntl.LOCK_EX)
+                if not no_ar():
+                    subprocess.Popen([os.environ.get("CS_WHISPER_PY", str(HOME / "miniconda3/envs/chatterbox/bin/python3")),
+                                      "whisper_daemon.py", "--porta", str(WHISPER_PORTA)], cwd=CFG["inemavox"],
+                                     stdout=open(HOME / ".cache/whisper_daemon.log", "a"), stderr=subprocess.STDOUT,
+                                     start_new_session=True)
+                    for _ in range(90):  # até 3 min para carregar o large-v3
+                        time.sleep(2)
+                        if no_ar():
+                            break
+        req = urllib.request.Request(base + "/transcrever", headers={"Content-Type": "application/json"},
+                                     data=json.dumps({"audio": str(Path(w16).resolve()), "lang": os.environ.get("CS_LANG", "pt"),
+                                                      "words": palavras}).encode())
+        return json.loads(urllib.request.urlopen(req, timeout=1800).read())["segments"]
+    except Exception as e:
+        log(f"whisper residente indisponível ({e}); usando o caminho antigo")
+        return None
+
+
 def transcrever(wav, pasta, palavras=False):
     """Transcrição local (Whisper large-v3 pelo inemavox). Devolve a lista de palavras ou segmentos."""
     pasta.mkdir(parents=True, exist_ok=True)
     w16 = pasta / "a16.wav"
     sh("ffmpeg", "-y", "-loglevel", "error", "-i", wav, "-ar", "16000", "-ac", "1", w16)
-    cmd = ["python3", "transcrever_v1.py", "--in", w16, "--outdir", pasta / "t", "--whisper-model", "large-v3", "--src", "pt"]
+    segs = _whisper_residente(w16, palavras)
+    if segs is not None:
+        return [w for s in segs for w in s.get("words", [])] if palavras else segs
+    cmd =["python3", "transcrever_v1.py", "--in", w16, "--outdir", pasta / "t", "--whisper-model", "large-v3",
+           "--src", os.environ.get("CS_LANG", "pt")]  # CS_LANG=es: reel traduzido (REA ES, 13/10/2026)
     if palavras:
         cmd.append("--words")
     sh(*cmd, cwd=CFG["inemavox"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
